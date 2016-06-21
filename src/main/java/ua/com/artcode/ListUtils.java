@@ -23,7 +23,6 @@ public class ListUtils {
     }
 
     public static<T> A<T> reversion(A<T> head) {
-//        todo write your code
 
         if(head.getNext() != null) {
             A<T> tail = head;
