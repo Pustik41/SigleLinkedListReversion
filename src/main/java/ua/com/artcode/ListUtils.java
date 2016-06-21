@@ -24,6 +24,40 @@ public class ListUtils {
 
     public static<T> A<T> reversion(A<T> head) {
 
+        if(head.getNext() != null) {
+
+            A<T> tail = head;
+            A<T> copyHead = head;
+            A<T> iter = head;
+            int count = 0;
+
+            while (true) {
+                if(tail.getNext() == null){
+                    break;
+                }
+                tail = tail.getNext();
+                count++;
+            }
+
+          head = tail;
+
+            while (count != 0){
+
+                while (true) {
+                    if (iter.getNext() == tail) {
+                        iter.setNext(null);
+                        break;
+                    }
+
+                    iter = iter.getNext();
+                }
+
+                tail.setNext(iter);
+                tail = iter;
+                iter = copyHead;
+                count--;
+            }
+        }
         return head;
     }
 }
